@@ -1,47 +1,25 @@
-# Information Visualization - Assingment 3
+# Information Visualization - Assingment 3 - Magic Lenses
 
-Based on https://js.cytoscape.org/demos/colajs-graph/
+Based on the files and code from https://js.cytoscape.org/demos/colajs-graph/
 
 
 ## What's in this project?
 
-← `README.md`: That's this file, where you can tell people what your cool website does and how you built it.
+← `README.md`: That's this file, where you can us how cool your assignment is and what you thought about it.
 
-← `index.html`: This is the main web page for your site. The HTML defines the structure and content of the page using _elements_. You'll see references in the HTML to the JS and CSS files. Try clicking the image in the center of the page!
+The files that you will probably need to edit are: 
 
-← `style.css`: CSS files add styling rules to your content. The CSS applies styles to the elements in your HTML page. The style rules also make the image move when you click it.
+← `index.html`: When adding controls for your lenses, you may need to add some html elements here 
+(selects, sliders, toggles, etc.)
 
-← `script.js`: If you're feeling fancy you can add interactivity to your site with JavaScript. The code in the JavaScript file runs when the page loads, and when the visitor clicks the button you can add using the code in the TODO.
+← `style/style.json`: Cytoscape uses this format to change the look of the node-link-diagram. 
+It may be useful to create a new class for nodes and edges that you want to modify when under the effect of the lens. 
+See https://js.cytoscape.org/#style for all the options. 
+
+← `script.js`: This is where you do your magic (no pun intended). 
+Cytoscape and the events are already called there. 
+You focus on simulating the lens behavior and adding functionality to your html controls.
 
 Open each file and check out the comments (in gray) for more info.
 
-## Try this next 🏗️
-
-Take a look in `TODO.md` for next steps you can try out in your new site!
-
-**_Want a minimal version of this project to build your own website? Check out [Blank Website](https://glitch.com/edit/#!/remix/glitch-blank-website)!_**
-
-## Ready to share your site?
-
-Add these meta tags for SEO and social sharing between your page `<head></head>` tags, changing the values for your site:
-
-```
-<link rel="canonical" href="https://glitch-hello-website.glitch.me/" />
-<meta name="description" content="A simple website, built with Glitch. Remix it to get your own."/>
-<meta name="robots" content="index,follow" />
-<meta property="og:title" content="Hello World!" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://glitch-hello-website.glitch.me/" />
-<meta property="og:description" content="A simple website, built with Glitch. Remix it to get your own."/>
-<meta property="og:image" content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-website-social.png?v=1616712748147"/>
-<meta name="twitter:card" content="summary" />
-```
-
-![Glitch](https://cdn.glitch.com/a9975ea6-8949-4bab-addb-8a95021dc2da%2FLogo_Color.svg?v=1602781328576)
-
-## You built this with Glitch!
-
-[Glitch](https://glitch.com) is a friendly community where millions of people come together to build web apps and websites.
-
-- Need more help? [Check out our Help Center](https://help.glitch.com/) for answers to any common questions.
-- Ready to make it official? [Become a paid Glitch member](https://glitch.com/pricing) to boost your app with private sharing, more storage and memory, domains and more.
+Good luck, and have fun!
