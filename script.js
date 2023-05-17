@@ -4,6 +4,23 @@
 /* global fetch, cytoscape */
 import _style from "/style.js";
 
+// returns true if "point" is inside the circle defined by "circleCenter" and "circleRadius"
+const isInCircle = function (circleCenter, circleRadius, point) {
+  //console.log(point)
+  //console.log(circleCenter)
+  //console.log(circleRadius)
+  //console.log(Math.pow(point.x - circleCenter.x, 2) + Math.pow(point.y - circleCenter.y, 2))
+  //console.log(Math.pow(Math.pow(circleCenter.x - point.x, 2) + Math.pow(circleCenter.y - point.y, 2),0.5) )
+  //console.log(Math.pow(circleRadius, 2))
+  //console.log(circleRadius)
+
+  const pythagoras = Math.pow(point.x - circleCenter.x, 2) + 
+      Math.pow(point.y - circleCenter.y, 2)
+  const radius = Math.pow(circleRadius, 2)  
+  return pythagoras < radius
+
+}
+
 fetch("data/data.json")
   .then((res) => res.json())
   .then((data) => {
@@ -51,27 +68,13 @@ fetch("data/data.json")
         
         const node = n.renderedPosition();
         
-        if (isInCircle(mouse, radius, node)) {
-          console.log(n)
-        }
+        console.log(isInCircle(mouse, radius, node))
         return ; 
       })
       
     });
     
-    // returns true if "point" is inside the circle defined by "circleCenter" and "circleRadius"
-    function isInCircle(circleCenter, circleRadius, point) {
-      //console.log(point)
-      //console.log(circleCenter)
-      //console.log(circleRadius)
-      console.log(Math.pow(point.x - circleCenter.x, 2) + Math.pow(point.y - circleCenter.y, 2))
-      console.log(Math.pow(circleRadius, 2))
-      
-      return 
-        Math.pow(circleCenter.x - point.x, 2) + 
-        Math.pow(circleCenter.y - point.y, 2) 
-      <= Math.pow(circleRadius, 2);
-    }
+    
 
     cy.on("tap", "edge", function (e) {});
 
