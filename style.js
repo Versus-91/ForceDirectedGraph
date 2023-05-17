@@ -30,10 +30,17 @@ const _style = [{
     "background-color": "#77828C",
     "text-outline-color": "#77828C"
   }
+},{
+  "selector": "node.hovered",
+  "style": {
+    "shape": "rectangle",
+    "background-color": "#77828C",
+    "text-outline-color": "#77828C"
+  }
 }, {
   "selector": "edge",
   "style": {
-    "curve-style": "haystack",
+    "curve-style": "haystack", // bezier, taxi, ...
     "haystack-radius": "0.5",
     "opacity": "0.4",
     "line-color": "#bbb",
@@ -97,4 +104,4 @@ const _style = [{
   }
 }]
 
-export { _style }
+export default _style;
