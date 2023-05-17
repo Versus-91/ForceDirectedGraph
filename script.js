@@ -37,11 +37,11 @@ fetch("data/data.json")
       const node = e.target.renderedPosition();
       //console.log(`Mouse position: [x: ${node.x}, y: ${node.y}]`);
 
-      e.target.addClass("hovered");
+      e.target.addClass("magic");
     });
 
     cy.on("mouseout", "node", function (e) {
-      e.target.removeClass("hovered");
+      e.target.removeClass("magic");
     });
 
     cy.on("tap", "edge", function (e) {});

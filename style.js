@@ -31,9 +31,14 @@ const _style = [{
     "text-outline-color": "#77828C"
   }
 },{
-  "selector": "node.hovered",
+  "selector": "node.magic",
   "style": {
     // your magic lens effects for nodes go here! See https://js.cytoscape.org/#style for more options
+  }
+}, {
+  "selector": "edge.magic",
+  "style": {
+    // your magic lens effects for edges go here! See https://js.cytoscape.org/#style for more options
   }
 }, {
   "selector": "edge",
