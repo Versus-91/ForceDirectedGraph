@@ -44,7 +44,6 @@ fetch("data/data.json")
       e.target.removeClass("hovered");
     });
 
-    
     cy.on("tap", "edge", function (e) {});
     cy.on("zoom pan", function (e) {});
   

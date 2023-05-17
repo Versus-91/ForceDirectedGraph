@@ -33,9 +33,7 @@ const _style = [{
 },{
   "selector": "node.hovered",
   "style": {
-    "shape": "rectangle",
-    "background-color": "#77828C",
-    "text-outline-color": "#77828C"
+    // your magic lens effects for nodes go here! See https://js.cytoscape.org/#style for more options
   }
 }, {
   "selector": "edge",
