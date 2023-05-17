@@ -8,31 +8,8 @@ Promise.all([
     return res.json();
   }),
 ]).then(function (dataArray) {
-  var h = function (tag, attrs, children) {
-    var el = document.createElement(tag);
-
-    Object.keys(attrs).forEach(function (key) {
-      var val = attrs[key];
-
-      el.setAttribute(key, val);
-    });
-
-    children.forEach(function (child) {
-      el.appendChild(child);
-    });
-
-    return el;
-  };
-
-  var t = function (text) {
-    var el = document.createTextNode(text);
-
-    return el;
-  };
-
-  var $ = document.querySelector.bind(document);
-
-  var cy = (window.cy = cytoscape({
+  
+  const cy = (window.cy = cytoscape({
     container: document.getElementById("cy"),
     style: dataArray[0],
     elements: dataArray[1],
@@ -42,14 +19,13 @@ Promise.all([
   var params = {
     name: "cola",
     nodeSpacing: 5,
-    edgeLengthVal: 45,
+    edgeLength: 200,
     animate: true,
     randomize: false,
     maxSimulationTime: 1500,
   };
   
   cy.layout(params).run();
-
 
   cy.on("tap", function (e) {
     
