@@ -1,34 +1,72 @@
-/*
-  This is your site JavaScript code - you can add interactivity!
-*/
+/* global Promise, fetch, window, cytoscape, document, tippy, _ */
 
-// Print a message in the browser's dev tools console each time the page loads
-// Use your menus or right-click / control-click and choose "Inspect" > "Console"
-console.log("Hello 🌎");
+Promise.all([
+  fetch("style.json").then(function (res) {
+    return res.json();
+  }),
+  fetch("data.json").then(function (res) {
+    return res.json();
+  }),
+]).then(function (dataArray) {
+  var h = function (tag, attrs, children) {
+    var el = document.createElement(tag);
 
-/* 
-Make the "Click me!" button move when the visitor clicks it:
-- First add the button to the page by following the steps in the TODO 🚧
-*/
-const btn = document.querySelector("button"); // Get the button from the page
-if (btn) { // Detect clicks on the button
-  btn.onclick = function () {
-    // The 'dipped' class in style.css changes the appearance on click
-    btn.classList.toggle("dipped");
+    Object.keys(attrs).forEach(function (key) {
+      var val = attrs[key];
+
+      el.setAttribute(key, val);
+    });
+
+    children.forEach(function (child) {
+      el.appendChild(child);
+    });
+
+    return el;
   };
-}
+
+  var t = function (text) {
+    var el = document.createTextNode(text);
+
+    return el;
+  };
+
+  var $ = document.querySelector.bind(document);
+
+  var cy = (window.cy = cytoscape({
+    container: document.getElementById("cy"),
+    style: dataArray[0],
+    elements: dataArray[1],
+    layout: { name: "random" },
+  }));
+
+  var params = {
+    name: "cola",
+    nodeSpacing: 5,
+    edgeLengthVal: 45,
+    animate: true,
+    randomize: false,
+    maxSimulationTime: 1500,
+  };
+  
+  cy.layout(params).run();
 
 
-// ----- GLITCH STARTER PROJECT HELPER CODE -----
+  cy.on("tap", function (e) {
+    
+  });
 
-// Open file when the link in the preview is clicked
-let goto = (file, line) => {
-  window.parent.postMessage(
-    { type: "glitch/go-to-line", payload: { filePath: file, line: line } }, "*"
-  );
-};
-// Get the file opening button from its class name
-const filer = document.querySelectorAll(".fileopener");
-filer.forEach((f) => {
-  f.onclick = () => { goto(f.dataset.file, f.dataset.line); };
+  cy.on("tap", "edge", function (e) {
+    
+  });
+
+  cy.on("zoom pan", function (e) {
+    
+  });
+
+  cy.nodes().forEach(function (n) {
+    n.on("click", function (e) {
+      console.log(e)
+    });
+  });
+
 });
