@@ -30,17 +30,6 @@ const _style = [{
     "background-color": "#77828C",
     "text-outline-color": "#77828C"
   }
-},{
-  "selector": "node.magic",
-  "style": {
-    "shape": "rectangle",
-    // your magic lens effects for nodes go here! See https://js.cytoscape.org/#style for more options
-  }
-}, {
-  "selector": "edge.magic",
-  "style": {
-    // your magic lens effects for edges go here! See https://js.cytoscape.org/#style for more options
-  }
 }, {
   "selector": "edge",
   "style": {
@@ -50,6 +39,18 @@ const _style = [{
     "line-color": "#bbb",
     "width": "mapData(weight, 0, 1, 1, 8)",
     "overlay-padding": "3px"
+  }
+}, {
+  "selector": "node.magic",
+  "style": {
+    // your magic lens effects for nodes go here! 
+    // See https://js.cytoscape.org/#style for all options
+  }
+}, {
+  "selector": "edge.magic",
+  "style": {
+    // your magic lens effects for edges go here! 
+    // See https://js.cytoscape.org/#style for all options
   }
 }, {
   "selector": "edge[group=\"coexp\"]",

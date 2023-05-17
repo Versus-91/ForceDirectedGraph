@@ -27,8 +27,11 @@ fetch("data/data.json")
     });
 
     cy.on("mousemove", "node", function (e) {
-      // HINT: use the "isInCircle" function defined above to calculate whether a node is inside the lens!
-      
+      /* 
+      HINTs: 
+        1. use the "isInCircle" function defined above to calculate whether a node is inside the lens! 
+        2. if you experience performance issues, use cy.startBatch() and cy.endBatch() to avoid unnecessary canvas redraws. See https://js.cytoscape.org/#cy.batch for more
+      */
       
       const mouse = { x: e.originalEvent.x, y: e.originalEvent.y };
       console.log(`Mouse position: [x: ${mouse.x}, y: ${mouse.y}]`);
