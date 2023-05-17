@@ -26,7 +26,7 @@ fetch("data/data.json")
       },
     });
 
-    cy.on("mousemove", "node", function (e) {
+    cy.on("mousemove", function (e) {
       /* 
 
       Your code goes here! 
