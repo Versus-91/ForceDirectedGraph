@@ -21,7 +21,11 @@ Promise.all([
     },
   });
 
-  cy.on("tap", function (e) {});
+  
+  cy.on("mousemove", function (e) {
+    // HINT: use 
+    
+  });
 
   cy.on("tap", "edge", function (e) {});
 
