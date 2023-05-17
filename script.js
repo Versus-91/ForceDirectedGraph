@@ -1,7 +1,10 @@
+// This is your playground! 
+// Add functionality to your html controls, play with cytoscape's events and make those magic lenses!
+
 /* global Promise, fetch, window, cytoscape */
 
 Promise.all([
-  fetch("data/style.json").then(res => res.json()),
+  fetch("style.json").then(res => res.json()),
   fetch("data/data.json").then(res => res.json()),
 ]).then(function (data) {
   const cy = cytoscape({
