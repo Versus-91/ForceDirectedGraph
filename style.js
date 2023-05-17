@@ -1,4 +1,4 @@
-[{
+const _style = [{
   "selector": "core",
   "style": {
     "selection-box-color": "#AAD8FF",
@@ -22,23 +22,6 @@
     "z-index": "10"
   }
 }, {
-  "selector": "node[?attr]",
-  "style": {
-    "shape": "rectangle",
-    "background-color": "#aaa",
-    "text-outline-color": "#aaa",
-    "width": "16px",
-    "height": "16px",
-    "font-size": "6px",
-    "z-index": "1"
-  }
-}, {
-  "selector": "node[?query]",
-  "style": {
-    "background-clip": "none",
-    "background-fit": "contain"
-  }
-}, {
   "selector": "node:selected",
   "style": {
     "border-width": "6px",
@@ -56,35 +39,6 @@
     "line-color": "#bbb",
     "width": "mapData(weight, 0, 1, 1, 8)",
     "overlay-padding": "3px"
-  }
-}, {
-  "selector": "node.unhighlighted",
-  "style": {
-    "opacity": "0.2"
-  }
-}, {
-  "selector": "edge.unhighlighted",
-  "style": {
-    "opacity": "0.05"
-  }
-}, {
-  "selector": ".highlighted",
-  "style": {
-    "z-index": "999999"
-  }
-}, {
-  "selector": "node.highlighted",
-  "style": {
-    "border-width": "6px",
-    "border-color": "#AAD8FF",
-    "border-opacity": "0.5",
-    "background-color": "#394855",
-    "text-outline-color": "#394855"
-  }
-}, {
-  "selector": "edge.filtered",
-  "style": {
-    "opacity": "0"
   }
 }, {
   "selector": "edge[group=\"coexp\"]",
@@ -142,3 +96,5 @@
     "line-color": "#f0ec86"
   }
 }]
+
+export { _style }
