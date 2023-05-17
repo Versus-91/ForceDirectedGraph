@@ -27,16 +27,15 @@ fetch("data/data.json")
     });
 
     cy.on("mousemove", "node", function (e) {
-      /* HINTs: 
-       2. use the "isInCircle" function defined above to calculate whether a node is inside the lens! 
-      */ 
+      // HINT: use the "isInCircle" function defined above to calculate whether a node is inside the lens!
+      
       
       const mouse = { x: e.originalEvent.x, y: e.originalEvent.y };
       console.log(`Mouse position: [x: ${mouse.x}, y: ${mouse.y}]`);
       
       cy.nodes().forEach((n) => {
-        const node = n.renderedPosition();
-        console.log(`Node position: [x: ${node.x}, y: ${node.y}]`);
+        const node = n.renderedPosition(); // Careful: other position functions may invoke different coordinate systems
+        // console.log(`Node position: [x: ${node.x}, y: ${node.y}]`);
       });
     });
 
