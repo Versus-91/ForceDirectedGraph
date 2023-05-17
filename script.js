@@ -1,48 +1,27 @@
-/* global Promise, fetch, window, cytoscape, document, tippy, _ */
+/* global Promise, fetch, window, cytoscape */
 
 Promise.all([
-  fetch("style.json").then(function (res) {
-    return res.json();
-  }),
-  fetch("data.json").then(function (res) {
-    return res.json();
-  }),
-]).then(function (dataArray) {
-  
-  const cy = (window.cy = cytoscape({
+  fetch("data/style.json").then(res => res.json()),
+  fetch("data/data.json").then(res => res.json()),
+]).then(function (data) {
+  const cy = cytoscape({
     container: document.getElementById("cy"),
-    style: dataArray[0],
-    elements: dataArray[1],
-    layout: { name: "random" },
-  }));
-
-  var params = {
-    name: "cola",
-    nodeSpacing: 5,
-    edgeLength: 200,
-    animate: true,
-    randomize: false,
-    maxSimulationTime: 1500,
-  };
-  
-  cy.layout(params).run();
-
-  cy.on("tap", function (e) {
-    
+    style: data[0], 
+    elements: data[1],
+    layout: {
+      name: "cola",
+      nodeSpacing: 5,
+      edgeLength: 200,
+      animate: true,
+      randomize: false,
+      maxSimulationTime: 1500,
+    },
   });
 
-  cy.on("tap", "edge", function (e) {
-    
-  });
+  cy.on("tap", function (e) {});
 
-  cy.on("zoom pan", function (e) {
-    
-  });
+  cy.on("tap", "edge", function (e) {});
 
-  cy.nodes().forEach(function (n) {
-    n.on("click", function (e) {
-      console.log(e)
-    });
-  });
+  cy.on("zoom pan", function (e) {});
 
 });
