@@ -1,9 +1,8 @@
-/* If you need to make some changes to the plain html, this is the place! */
+/* If you need to make some style changes to the plain html, this is the place! */
 
 
 .cy {
   /* aligns the svg with the canvas */
-  
   position: absolute;
   left: 0;
   top: 0;
