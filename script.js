@@ -4,21 +4,9 @@
 /* global fetch, cytoscape */
 import _style from "/style.js";
 
-// returns true if "point" is inside the circle defined by "circleCenter" and "circleRadius"
-const isInCircle = function (circleCenter, circleRadius, point) {
-  //console.log(point)
-  //console.log(circleCenter)
-  //console.log(circleRadius)
-  //console.log(Math.pow(point.x - circleCenter.x, 2) + Math.pow(point.y - circleCenter.y, 2))
-  //console.log(Math.pow(Math.pow(circleCenter.x - point.x, 2) + Math.pow(circleCenter.y - point.y, 2),0.5) )
-  //console.log(Math.pow(circleRadius, 2))
-  //console.log(circleRadius)
-
-  const pythagoras = Math.pow(point.x - circleCenter.x, 2) + 
-      Math.pow(point.y - circleCenter.y, 2)
-  const radius = Math.pow(circleRadius, 2)  
-  return pythagoras < radius
-
+// returns true if the point "p" is inside the circle defined by "c" (center) and "r" (radius)
+function isInCircle(c, r, p) {
+  return Math.pow(p.x - c.x, 2) + Math.pow(p.y - c.y, 2) <= Math.pow(r, 2) 
 }
 
 fetch("data/data.json")
@@ -39,11 +27,13 @@ fetch("data/data.json")
     });
 
     /*cy.on("mouseover", "node", function (e) {
-      // HINT: use the "mousemove" event instead!
-
-      const mouse = e.position;
+      // HINTs: 
+       1. use the "mousemove" event instead!
+       2. use the "isInCircle" function defined above to calculate whether a node is inside the lens! 
+       
+      const mouse = { x: e.originalEvent.x, y: e.originalEvent.y };
       //console.log(`Mouse position: [x: ${mouse.x}, y: ${mouse.y}]`);
-      const node = e.target.position();
+      const node = e.target.renderedPosition();
       //console.log(`Mouse position: [x: ${node.x}, y: ${node.y}]`);
 
       e.target.addClass("hovered");
@@ -60,22 +50,21 @@ fetch("data/data.json")
       
       lens.setAttribute('cx', mouse.x);
       lens.setAttribute('cy', mouse.y);
-      
       lens.setAttribute('r', radius);
+      
       //lens.setAttribute('transform', `translate(${mouse.x - radius}, ${mouse.y - radius})`);
       
       cy.nodes().forEach(n => {
-        
         const node = n.renderedPosition();
         
-        console.log(isInCircle(mouse, radius, node))
-        return ; 
+        if (isInCircle(mouse, radius, node)) {
+          n.addClass('hovered')
+        } else {
+          n.removeClass('hovered')
+        }
       })
-      
     });
     
-    
-
     cy.on("tap", "edge", function (e) {});
 
     cy.on("zoom pan", function (e) {});
