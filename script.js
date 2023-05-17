@@ -26,11 +26,12 @@ fetch("data/data.json")
       },
     });
 
-    /*cy.on("mouseover", "node", function (e) {
-      // HINTs: 
+    cy.on("mouseover", "node", function (e) {
+      /* HINTs: 
        1. use the "mousemove" event instead!
        2. use the "isInCircle" function defined above to calculate whether a node is inside the lens! 
-       
+      */ 
+      
       const mouse = { x: e.originalEvent.x, y: e.originalEvent.y };
       //console.log(`Mouse position: [x: ${mouse.x}, y: ${mouse.y}]`);
       const node = e.target.renderedPosition();
@@ -41,31 +42,10 @@ fetch("data/data.json")
 
     cy.on("mouseout", "node", function (e) {
       e.target.removeClass("hovered");
-    });*/
-
-    cy.on("mousemove", function (e) {
-      const lens = document.getElementById('lens')
-      const mouse = {x: e.originalEvent.x, y: e.originalEvent.y};
-      const radius = 80;
-      
-      lens.setAttribute('cx', mouse.x);
-      lens.setAttribute('cy', mouse.y);
-      lens.setAttribute('r', radius);
-      
-      //lens.setAttribute('transform', `translate(${mouse.x - radius}, ${mouse.y - radius})`);
-      
-      cy.nodes().forEach(n => {
-        const node = n.renderedPosition();
-        
-        if (isInCircle(mouse, radius, node)) {
-          n.addClass('hovered')
-        } else {
-          n.removeClass('hovered')
-        }
-      })
     });
+
     
     cy.on("tap", "edge", function (e) {});
-
     cy.on("zoom pan", function (e) {});
+  
   });
