@@ -37,7 +37,13 @@ fetch("data/data.json")
     });
 
     cy.on("mousemove", function (e) {
-      console.log(e.target.data())
+      cy.nodes().forEach(n => {
+        const mouse = e.position;
+        const nodePos
+        
+        console.log()  
+      })
+      
     
     });
 
