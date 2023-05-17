@@ -25,9 +25,9 @@ fetch("data/data.json")
       // HINT: use the "mousemove" event instead!
 
       const mouse = e.position;
-      console.log(`Mouse position: [x: ${mouse.x}, y: ${mouse.y}]`);
+      //console.log(`Mouse position: [x: ${mouse.x}, y: ${mouse.y}]`);
       const node = e.target.position();
-      console.log(`Mouse position: [x: ${node.x}, y: ${node.y}]`);
+      //console.log(`Mouse position: [x: ${node.x}, y: ${node.y}]`);
 
       e.target.addClass("hovered");
     });
@@ -36,10 +36,10 @@ fetch("data/data.json")
       e.target.removeClass("hovered");
     });
 
-    /*cy.on("mouseover", function (e) {
-    // HINT: use the "mousemove" event instead!  
+    cy.on("mousemove", function (e) {
+      console.log(e.target.data())
     
-    });*/
+    });
 
     cy.on("tap", "edge", function (e) {});
 
