@@ -21,7 +21,7 @@ fetch("data/data.json")
       },
     });
 
-    cy.on("mouseover", "node", function (e) {
+    /*cy.on("mouseover", "node", function (e) {
       // HINT: use the "mousemove" event instead!
 
       const mouse = e.position;
@@ -30,22 +30,30 @@ fetch("data/data.json")
       //console.log(`Mouse position: [x: ${node.x}, y: ${node.y}]`);
 
       e.target.addClass("hovered");
-    });
+    });*/
 
     cy.on("mouseout", "node", function (e) {
       e.target.removeClass("hovered");
     });
 
     cy.on("mousemove", function (e) {
-      cy.nodes().forEach(n => {
+      console.log(cy.nodes().filter(n => {
         const mouse = e.position;
-        const nodePos
+        const node = n.position();
         
-        console.log()  
-      })
+        
+        return isInCircle(mouse, 5, node); 
+      }).length)// .addClass("hovered")
       
-    
     });
+    
+    // returns true if "point" is inside the circle defined by "circleCenter" and "circleRadius"
+    function isInCircle(circleCenter, circleRadius, point) {
+      return 
+        Math.pow(point.x - circleCenter.x, 2) + 
+        Math.pow(point.y - circleCenter.y, 2) 
+      <= Math.pow(circleRadius, 2);
+    }
 
     cy.on("tap", "edge", function (e) {});
 
