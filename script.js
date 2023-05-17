@@ -37,18 +37,27 @@ fetch("data/data.json")
     });
 
     cy.on("mousemove", function (e) {
-      console.log(cy.nodes().filter(n => {
+      document.getElementById('lens').
+      
+      cy.nodes().filter(n => {
         const mouse = e.position;
         const node = n.position();
         
         
-        return isInCircle(mouse, 5, node); 
-      }).length)// .addClass("hovered")
+        return isInCircle(mouse, 400, node); 
+      }).addClass("hovered")
       
     });
     
     // returns true if "point" is inside the circle defined by "circleCenter" and "circleRadius"
     function isInCircle(circleCenter, circleRadius, point) {
+      console.log(point)
+      console.log(circleCenter)
+      console.log(circleRadius)
+      console.log(Math.pow(point.x - circleCenter.x, 2) + 
+        Math.pow(point.y - circleCenter.y, 2))
+      console.log(Math.pow(circleRadius, 2))
+      
       return 
         Math.pow(point.x - circleCenter.x, 2) + 
         Math.pow(point.y - circleCenter.y, 2) 
