@@ -33,6 +33,7 @@ const _style = [{
 },{
   "selector": "node.magic",
   "style": {
+    "shape": "rectangle",
     // your magic lens effects for nodes go here! See https://js.cytoscape.org/#style for more options
   }
 }, {
