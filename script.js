@@ -30,20 +30,21 @@ fetch("data/data.json")
       //console.log(`Mouse position: [x: ${node.x}, y: ${node.y}]`);
 
       e.target.addClass("hovered");
-    });*/
+    });
 
     cy.on("mouseout", "node", function (e) {
       e.target.removeClass("hovered");
-    });
+    });*/
 
     cy.on("mousemove", function (e) {
       const lens = document.getElementById('lens')
       const mouse = {x: e.originalEvent.x, y: e.originalEvent.y};
-      const radius = 40;
-      
+      const radius = 80;
       
       lens.setAttribute('cx', mouse.x);
       lens.setAttribute('cy', mouse.y);
+      
+      lens.setAttribute('r', radius);
       //lens.setAttribute('transform', `translate(${mouse.x - radius}, ${mouse.y - radius})`);
       
       cy.nodes().forEach(n => {
@@ -51,7 +52,7 @@ fetch("data/data.json")
         const node = n.renderedPosition();
         
         if (isInCircle(mouse, radius, node)) {
-          n.addClass('hovered')
+          console.log(n)
         }
         return ; 
       })
@@ -67,8 +68,8 @@ fetch("data/data.json")
       console.log(Math.pow(circleRadius, 2))
       
       return 
-        Math.pow(point.x - circleCenter.x, 2) + 
-        Math.pow(point.y - circleCenter.y, 2) 
+        Math.pow(circleCenter.x - point.x, 2) + 
+        Math.pow(circleCenter.y - point.y, 2) 
       <= Math.pow(circleRadius, 2);
     }
 
