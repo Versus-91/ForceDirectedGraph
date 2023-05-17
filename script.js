@@ -22,10 +22,19 @@ Promise.all([
   });
 
   
-  cy.on("mousemove", function (e) {
-    // HINT: use 
+  cy.on("mouseover", "node", function (e) {
+    
+    // HINT: use the "mousemove" event instead!  
+    console.log(`Mouse position: [x: ${e.position.x}, y: ${e.position.y}]`)
+    console.log(e.target)
+    
     
   });
+  
+  /*cy.on("mouseover", function (e) {
+    // HINT: use the "mousemove" event instead!  
+    
+  });*/
 
   cy.on("tap", "edge", function (e) {});
 
