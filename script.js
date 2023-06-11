@@ -164,6 +164,7 @@ fetch("data/data.json")
             }
             if (highlightEdge) {
               let edges = getNode.connectedEdges();
+              edges.style('line-color','#00A3FF' );
               edges.forEach((e) => {
                 let edge = cy.$(`#${e.id()}`);
                 if (!!edge) {
@@ -178,6 +179,7 @@ fetch("data/data.json")
           }
           if (highlightEdge) {
             let edges = getNode.connectedEdges();
+            edges.removeStyle("line-color")
             edges.forEach((e) => {
               let edge = cy.$(`#${e.id()}`);
               if (!!edge) {
