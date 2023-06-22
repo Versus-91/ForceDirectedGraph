@@ -30,6 +30,7 @@ lenseBehavoirSelect.addEventListener("change", (e) => {
 if (rangeSelector) {
   rangeSelector.addEventListener("change", (e) => {
     radiusMultiplier = e.target.value;
+    console.log(radiusMultiplier)
     radius = 40 + 40 * radiusMultiplier;
     lens.setAttribute("r", radius);
   });
