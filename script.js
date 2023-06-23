@@ -83,7 +83,7 @@ const rangeSelector = document.getElementById("rangeSelector");
 const lens = document.getElementById("lens");
 let radius = 40;
 let radiusMultiplier = 0;
-let changeNodeShape = false;
+let changeNodeShape = true;
 let highlightEdge = false;
 let lenseBehavoirSelect = document.getElementById("lenseBehavoirSelect");
 
