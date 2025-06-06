@@ -2,7 +2,7 @@
 // Add functionality to your html controls, play with cytoscape's events and make those magic lenses!
 
 /* global fetch, cytoscape */
-import _style from "/ParallelCoordinatePlot/style.js";
+import _style from "/ForceDirectedGraph/style.js";
 
 var data1 = [
   { group: "A", value: 4 },
